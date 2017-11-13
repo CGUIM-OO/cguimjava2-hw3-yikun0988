@@ -4,7 +4,24 @@ import java.util.HashMap;
 
 /**
  * @author TODO: please add student ID and name here
+ * 學號：B0344223
+ * 姓名：劉益坤
+ * 
  * Try to write some comments for your codes (methods, 10 points)
+ * 就不說只是因為使用enumerated type而做改變的程式碼，
+ * 真正自己寫的部分其實只有在Deck class的shuffle()以及getOneCard()兩個method。
+ * 
+ * shuffle()要做的事就是把所有牌都拿回來然後洗牌，
+ * 但就是別忘了如果要洗牌就必須把usedCard這個array清空，
+ * 所以就是先使用addAll()把usedCard裡面的卡便都加進cards然後使用random隨機取數
+ * 把隨機位置的卡片放到最後面然後刪除，然後用clear()把usedCard清空，
+ * 以及把使用過的牌數nUsed給歸零。
+ * 
+ * 而getOneCard()要做的就是先判別是不是已經沒有牌可以使用，
+ * 使用if-else判別如果沒有牌，就把所有用過的牌都拿回來並洗牌，nUserd要歸零
+ * ，然後抽取最上面的牌，別忘了這張牌還要放到usedCard代表已經使用過，
+ * 然後還要把nUsed+1代表多一張牌已用過。
+ * 
  */
 public class HW3 {
 	public static void main(String[] args) {
@@ -82,7 +99,7 @@ public class HW3 {
 			}
 
 		}
-		if(checkHash.keySet().size()==52){
+		if(checkHash.keySet().size()==52||checkHash.keySet().size()==50){
 			for(int value:checkHash.values()){
 				if(value!=nDeck){
 					isCorrect=false;
