@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
@@ -47,6 +48,9 @@ public class Deck {
 	public void shuffle() {
 		cards.addAll(usedCard);
 		Random rnd = new Random(); 
+		//內建洗牌
+		Collections.shuffle(cards);
+		//老師要的洗牌
 		for(int i=0;i<52;i++) {
 			int j = rnd.nextInt(i+1);
             cards.add(cards.get(j));
